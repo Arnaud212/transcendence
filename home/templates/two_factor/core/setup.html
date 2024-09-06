@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Two-Factor Authentication Setup" %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% trans "Setup" %}</button>
+</form>
+
+<img src="{% url 'qr_code' %}" alt="QR Code">
+{% endblock %}

@@ -1,0 +1,13 @@
+Django
+python-dotenv
+django-allauth
+djangorestframework
+djangorestframework_simplejwt
+django-otp
+django-two-factor-auth
+psycopg2-binary
+requests
+phonenumbers
+Pillow
+aiosqlite
+sqlparse

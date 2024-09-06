@@ -1,0 +1,7 @@
+#mainContent {
+    display: none;
+}
+
+.modal-open #mainContent {
+    display: none;
+}

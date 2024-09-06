@@ -1,0 +1,28 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% block head_title %}
+    {% trans "Email Addresses" %}
+{% endblock head_title %}
+{% block content %}
+    <h1>{% trans "Email Address" %}</h1>
+    {% if emailaddresses %}
+        <p>{% trans 'The following email address is associated with your account:' %}</p>
+        {% for emailaddress in emailaddresses %}
+            <p>
+                {{ emailaddress.email }}
+                {% if emailaddress.verified %}
+                    <span style="color: green;">{% trans "Verified" %}</span>
+                {% else %}
+                    <span style="color: red;">{% trans "Unverified" %}</span>
+                    <form method="post" action="{% url 'account_email' %}" style="display:inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="email" value="{{ emailaddress.email }}">
+                        <button type="submit" name="action_send" class="btn btn-link p-0 m-0 align-baseline">{% trans "Send Verification" %}</button>
+                    </form>
+                {% endif %}
+            </p>
+        {% endfor %}
+    {% else %}
+        <p>{% trans "You have no email addresses associated with your account." %}</p>
+    {% endif %}
+{% endblock %}

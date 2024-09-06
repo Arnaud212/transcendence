@@ -1,0 +1,7 @@
+Hello,
+
+Please click the link below to verify your email address and complete the registration of your account:
+
+{{ activate_url }}
+
+Thank you!
